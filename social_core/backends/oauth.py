@@ -407,6 +407,7 @@ class BaseOAuth2(OAuthAuth):
     @handle_http_errors
     def do_auth(self, access_token, *args, **kwargs):
         """Finish the auth process once the access_token was retrieved"""
+        print("Access token: {}".format(access_token))
         data = self.user_data(access_token, *args, **kwargs)
         response = kwargs.get('response') or {}
         response.update(data or {})
